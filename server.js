@@ -33,7 +33,7 @@ app.use(cookieParser())
 // so you don't need to restart the server when switching between ports.
 //
 const allowedOrigins = [
-  process.env.CLIENT_URL,
+  process.env.FRONTEND_URL,
   // Keep localhost allowed in development — harmless in production
   // because browsers never send Origin: http://localhost for real users.
   'http://localhost:3000',
