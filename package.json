@@ -1,0 +1,29 @@
+{
+  "name": "kurti-cove-server",
+  "version": "1.0.0",
+  "description": "Kurti Cove E-Commerce Backend API",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cloudinary": "latest",
+    "cookie-parser": "latest",
+    "cors": "latest",
+    "cryptr": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "jsonwebtoken": "latest",
+    "mongoose": "latest",
+    "multer": "latest",
+    "nodemailer": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}
