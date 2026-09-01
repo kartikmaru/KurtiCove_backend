@@ -12,6 +12,7 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@getbrevo/brevo": "6.0.3",
     "cloudinary": "latest",
     "cookie-parser": "latest",
     "cors": "latest",
@@ -20,8 +21,7 @@
     "express": "latest",
     "jsonwebtoken": "latest",
     "mongoose": "latest",
-    "multer": "latest",
-    "nodemailer": "latest"
+    "multer": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"

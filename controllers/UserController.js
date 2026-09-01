@@ -2,6 +2,7 @@ import Cryptr from 'cryptr'
 import UserModel from '../models/UserModel.js'
 import generateToken from '../utils/generateToken.js'
 import { sendOtpMail } from '../utils/SendOtpMail.js'
+import { sendWelcomeEmail } from '../services/emailService.js'
 
 /** Cookie options based on environment */
 const cookieOptions = () => ({
@@ -114,6 +115,15 @@ export const verifyOtp = async (req, res) => {
     user.otp = null
     user.otpExpire = null
     await user.save()
+
+    // Send welcome email — fire-and-forget, never block the response
+    try {
+      if (process.env.BREVO_API_KEY) {
+        await sendWelcomeEmail(user.email, user.name)
+      }
+    } catch (emailErr) {
+      console.error('Welcome email failed (non-fatal):', emailErr.message)
+    }
 
     const token = generateToken(user._id)
     res.cookie('jwt', token, cookieOptions())
