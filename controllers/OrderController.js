@@ -21,9 +21,13 @@ export const placeOrder = async (req, res) => {
     }
 
     // Validate payment method
-    const validMethods = ['cod', 'upi', 'phonepe', 'googlepay']
+    const validMethods  = ['cod', 'upi', 'phonepe', 'googlepay']
+    const validStatuses = ['pending', 'pending_verification', 'paid', 'failed']
     if (!validMethods.includes(paymentMethod)) {
       return res.status(400).json({ success: false, msg: 'Invalid payment method.' })
+    }
+    if (paymentStatus && !validStatuses.includes(paymentStatus)) {
+      return res.status(400).json({ success: false, msg: 'Invalid payment status.' })
     }
 
     // Fetch cart from DB — never trust frontend totals
