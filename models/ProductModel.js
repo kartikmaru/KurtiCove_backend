@@ -21,5 +21,12 @@ const productSchema = new mongoose.Schema(
 // Full-text index for search functionality
 productSchema.index({ name: 'text', description: 'text' })
 
+// Performance indexes for common query patterns
+productSchema.index({ isNewArrival: 1, createdAt: -1 })
+productSchema.index({ isBestSeller: 1, createdAt: -1 })
+productSchema.index({ isFeatured:   1, createdAt: -1 })
+productSchema.index({ category: 1,    createdAt: -1 })
+productSchema.index({ createdAt: -1 })
+
 const ProductModel = mongoose.model('Product', productSchema)
 export default ProductModel

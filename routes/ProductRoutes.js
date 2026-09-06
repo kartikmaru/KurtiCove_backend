@@ -4,6 +4,7 @@ import {
   getProductById,
   getCategories,
   getSimilarProducts,
+  getHomeData,
   createProduct,
   updateProduct,
   deleteProduct,
@@ -16,8 +17,8 @@ const router = express.Router()
 
 // Public routes — static paths MUST come before /:id
 router.get('/', getProducts)
-router.get('/categories', getCategories)           // ← GET /api/product/categories
-router.get('/similar', getSimilarProducts)         // ← GET /api/product/similar?productId=
+router.get('/categories', getCategories)
+router.get('/similar', getSimilarProducts)
 router.get('/:id', getProductById)
 
 // Admin routes

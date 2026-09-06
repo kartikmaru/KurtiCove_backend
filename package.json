@@ -21,7 +21,8 @@
     "express": "latest",
     "jsonwebtoken": "latest",
     "mongoose": "latest",
-    "multer": "latest"
+    "multer": "latest",
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {
     "nodemon": "latest"

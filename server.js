@@ -10,6 +10,7 @@ import CartRoutes    from './routes/CartRoutes.js'
 import OrderRoutes   from './routes/OrderRoutes.js'
 import SaleRoutes    from './routes/SaleRoutes.js'
 import ReviewRoutes  from './routes/ReviewRoutes.js'
+import { getHomeData } from './controllers/productController.js'
 
 dotenv.config()
 
@@ -66,6 +67,8 @@ app.use('/api/cart',    CartRoutes)
 app.use('/api/order',   OrderRoutes)
 app.use('/api/sale',    SaleRoutes)
 app.use('/api/review',  ReviewRoutes)
+/* Aggregated homepage endpoint — single call replaces 6 separate calls */
+app.get('/api/home', getHomeData)
 
 // ─── Additional health endpoint (Render also accepts /api/health) ─
 app.get('/api/health', (_req, res) => {
